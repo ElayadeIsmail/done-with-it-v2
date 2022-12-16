@@ -4,7 +4,7 @@ const AuthLayout = () => {
     return (
         <main className='min-h-screen pt-20 flex'>
             <div className='w-1/2 bg-[url(/images/auth.jpg)] bg-cover'></div>
-            <div className='w-1/2'>
+            <div className='w-1/2 flex items-center justify-center px-8'>
                 <Outlet />
             </div>
         </main>
