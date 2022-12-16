@@ -12,4 +12,24 @@
     a.active {
         color: #3ccf91;
     }
+
+    .flag-dropdown:hover {
+        background-color: #222 !important;
+    }
+    .flag-dropdown:active {
+        background-color: #222 !important;
+    }
+    .flag-dropdown {
+        background-color: #222 !important;
+    }
+
+    .react-tel-input .flag-dropdown:hover {
+        background-color: #222 !important;
+    }
+
+    .react-tel-input .country-list .country:hover,
+    .react-tel-input .country-list .country.highlight {
+        background-color: #3ccf91 !important;
+        color: #222 !important;
+    }
 }

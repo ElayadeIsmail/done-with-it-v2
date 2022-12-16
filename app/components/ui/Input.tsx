@@ -26,7 +26,11 @@ const Input: FC<InputProps> = ({
             <Label title={label} htmlFor={name} />
             <input
                 className={cn(
-                    ' bg-dark border-2  transition-all focus:border-primary border-black min-h-[44px] text-sm rounded-md shadow-lg w-full py-[7px] px-3',
+                    ' bg-dark border-2  outline-none focus:outline-none transition-all  min-h-[44px] text-sm rounded-md shadow-lg w-full py-[7px] px-3',
+                    {
+                        'focus:border-primary border-dark': !error,
+                        'focus:border-red-600 border-red-600': !!error,
+                    },
                     className,
                 )}
                 id={name}
