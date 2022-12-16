@@ -5,14 +5,14 @@ import { register } from '~/lib/auth.server';
 import { prisma } from '~/lib/database.server';
 import { badRequest } from '~/lib/request.server';
 import { createUserSession } from '~/lib/session.server';
-import type { RegisterSchema } from '~/lib/validation/auth';
 import { registerSchema } from '~/lib/validation/auth';
 
 export const action = async ({ request }: ActionArgs) => {
     const formData = await request.formData();
-    const inputs = Object.fromEntries(formData) as RegisterSchema;
-    const result = registerSchema.safeParse(inputs);
+    const form = Object.fromEntries(formData);
+    const result = registerSchema.safeParse(form);
     if (!result.success) return badRequest({ message: 'Invalid Inputs' });
+    const inputs = result.data;
     const existingUser = await prisma.user.findUnique({
         where: {
             email: inputs.email,
