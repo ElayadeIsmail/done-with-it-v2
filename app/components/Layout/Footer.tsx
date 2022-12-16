@@ -42,7 +42,7 @@ const Footer = () => {
                         <input
                             type='email'
                             placeholder='Subscribe To Our News Letter'
-                            className='flex-1 py-2.5 px-2 rounded-lg text-dark text-sm border-[3px] border-primary outline-0 focus:outline-none'
+                            className='flex-1 py-2.5 px-2 rounded-lg bg-dark text-sm transition-all focus:border-[3px] border-primary outline-0 focus:outline-none'
                         />
                         <Button variant='primary'>Subscribe</Button>
                     </div>
