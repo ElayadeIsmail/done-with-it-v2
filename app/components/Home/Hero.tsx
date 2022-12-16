@@ -19,7 +19,7 @@ const Hero = () => {
                 </span>
             </div>
             <div className='w-1/2 flex items-center justify-center py-4'>
-                <div className='relative w-full h-full overflow-hidden'>
+                <div className=' w-full h-full overflow-hidden'>
                     <img
                         className='block w-full object-cover duration-1000 transition-transform hover:scale-105'
                         alt='hero'

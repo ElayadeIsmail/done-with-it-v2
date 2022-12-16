@@ -4,7 +4,7 @@ import Logo from '../ui/Logo';
 
 const Header = () => {
     return (
-        <header className='container fixed inset-0 h-20 flex items-center justify-between'>
+        <header className='container bg-black z-50 fixed inset-0 h-20 flex items-center justify-between'>
             <Logo />
             <ul className='flex space-x-4 font-semibold'>
                 <NavLink className='hover:text-primary' to='/explore'>
