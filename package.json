@@ -8,7 +8,7 @@
         "dev": "yarn dev:css & yarn dev:remix",
         "dev:css": "yarn generate:css --watch",
         "dev:remix": "remix dev",
-        "generate:css": "npx tailwindcss -i ./styles/tailwind.css -o ./app/styles/tailwind.css",
+        "generate:css": "npx tailwindcss -i ./styles/tailwind.css -o ./app/tailwind.css",
         "start": "remix-serve build",
         "typecheck": "tsc -b"
     },
@@ -16,9 +16,11 @@
         "@remix-run/node": "^1.8.2",
         "@remix-run/react": "^1.8.2",
         "@remix-run/serve": "^1.8.2",
+        "clsx": "^1.2.1",
         "isbot": "^3.6.5",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "tailwind-merge": "^1.8.0"
     },
     "devDependencies": {
         "@remix-run/dev": "^1.8.2",
