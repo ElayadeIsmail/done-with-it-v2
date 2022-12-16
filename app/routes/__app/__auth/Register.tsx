@@ -1,5 +1,31 @@
+import type { ActionArgs } from '@remix-run/node';
 import { Form, Link } from '@remix-run/react';
 import { Button, Input, PhoneInput, Separator } from '~/components/ui';
+import { register } from '~/lib/auth.server';
+import { prisma } from '~/lib/database.server';
+import { badRequest } from '~/lib/request.server';
+import { createUserSession } from '~/lib/session.server';
+import type { RegisterSchema } from '~/lib/validation/auth';
+import { registerSchema } from '~/lib/validation/auth';
+
+export const action = async ({ request }: ActionArgs) => {
+    const formData = await request.formData();
+    const inputs = Object.fromEntries(formData) as RegisterSchema;
+    const result = registerSchema.safeParse(inputs);
+    if (!result.success) return badRequest({ message: 'Invalid Inputs' });
+    const existingUser = await prisma.user.findUnique({
+        where: {
+            email: inputs.email,
+        },
+    });
+    if (existingUser) return badRequest({ message: 'Email Already In use' });
+    const user = await register(inputs);
+    if (!user)
+        return badRequest({
+            message: `Something went wrong trying to create a new user.`,
+        });
+    return createUserSession(user.id, '/');
+};
 
 const Register = () => {
     return (
