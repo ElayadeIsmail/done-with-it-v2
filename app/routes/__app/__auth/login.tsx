@@ -1,5 +1,22 @@
+import type { ActionArgs } from '@remix-run/node';
 import { Form, Link } from '@remix-run/react';
 import { Button, Input, Separator } from '~/components/ui';
+import { login } from '~/lib/auth.server';
+import { badRequest } from '~/lib/request.server';
+import { createUserSession } from '~/lib/session.server';
+import type { LoginSchema } from '~/lib/validation/auth';
+import { loginSchema } from '~/lib/validation/auth';
+
+export const action = async ({ request }: ActionArgs) => {
+    const formData = await request.formData();
+    const inputs = Object.fromEntries(formData) as LoginSchema;
+    const result = loginSchema.safeParse(inputs);
+    if (!result.success) return badRequest({ message: 'Invalid Inputs' });
+
+    const user = await login(inputs);
+    if (!user) return badRequest({ message: 'Invalid Credentials' });
+    return createUserSession(user.id, '/');
+};
 
 const Login = () => {
     return (
