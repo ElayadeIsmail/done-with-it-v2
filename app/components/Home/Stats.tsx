@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { cn } from '~/lib/utils';
+import { Section } from '../ui';
 
 const STATS_DATA = [
     {
@@ -29,12 +30,9 @@ const Stats = () => {
         <StatsItem key={stat.title} {...stat} />
     ));
     return (
-        <div className='container py-16'>
-            <span className='block text-center mb-4 text-textGray text-xl'>
-                Fun Facts
-            </span>
-            <div className='grid grid-cols-4 gap-4'>{stats}</div>
-        </div>
+        <Section title='Fun Facts' subtitle='Statistic About Us'>
+            <div className='grid grid-cols-4 gap-4 w-full'>{stats}</div>
+        </Section>
     );
 };
 

@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Section } from '../ui';
 
 const TESTIMONIALS_DATA = [
     {
@@ -24,13 +25,9 @@ const Testimonials = () => {
         <TestimonialItem key={testimonial.img} {...testimonial} />
     ));
     return (
-        <div className='container py-16'>
-            <span className='block text-center mb-2 text-textGray text-xl'>
-                Testimonials
-            </span>
-            <h3 className='text-center mb-8 text-[55px]'>Clients About Us</h3>
+        <Section title='Testimonials' subtitle='Clients About Us'>
             <div className='grid grid-cols-3 gap-4 px-4'>{items}</div>
-        </div>
+        </Section>
     );
 };
 

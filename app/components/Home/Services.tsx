@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { Fast, Money, Secure } from '~/icons';
 import { cn } from '~/lib/utils';
+import { Section } from '../ui';
 
 const services = [
     {
@@ -31,16 +32,13 @@ const Services = () => {
         <ServiceItem key={service.title} {...service} />
     ));
     return (
-        <div className='h-screen  flex container justify-center flex-col'>
-            <span className='text-appOrange mb-4 text-xl font-semibold'>
-                Our Services
-            </span>
-
-            <h2 className='text-[42px] mb-20 font-bold'>
-                We help users build their websites
-            </h2>
+        <Section
+            className='h-screen'
+            title='Our Services'
+            subtitle='We help users build their websites'
+        >
             <div className='grid grid-cols-3 gap-8'>{items}</div>
-        </div>
+        </Section>
     );
 };
 
