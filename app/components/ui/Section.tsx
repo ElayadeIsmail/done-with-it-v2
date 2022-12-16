@@ -2,7 +2,7 @@ import type { FC, ReactNode } from 'react';
 import { cn } from '~/lib/utils';
 
 interface SectionProps {
-    title: string;
+    title?: string;
     subtitle?: string;
     children: ReactNode;
     className?: string;
@@ -21,9 +21,11 @@ const Section: FC<SectionProps> = ({
                 className,
             )}
         >
-            <span className='text-appOrange mb-4 text-xl text-center font-semibold'>
-                {title}
-            </span>
+            {title && (
+                <span className='text-appOrange mb-4 text-xl text-center font-semibold'>
+                    {title}
+                </span>
+            )}
 
             {subtitle && (
                 <h2 className='text-[42px] mb-20 font-bold text-center'>

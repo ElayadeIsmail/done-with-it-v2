@@ -59,10 +59,10 @@ interface CategoryProps {
 const CategoryItem: FC<CategoryProps> = ({ bg, cover, link, title }) => {
     return (
         <Link to={link} className='flex flex-col'>
-            <div className='relative overflow-hidden '>
+            <div className='overflow-hidden max-h-[500px] rounded-md mb-2'>
                 <img
                     src={cover}
-                    className='w-full rounded-md max-h-[500px] mb-2 duration-1000 transition-transform hover:scale-105'
+                    className='w-full overflow-hidden   duration-1000 transition-transform hover:scale-105'
                     alt=''
                 />
             </div>
