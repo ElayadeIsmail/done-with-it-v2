@@ -34,12 +34,14 @@ const Header = () => {
     return (
         <header className=' bg-black z-50 fixed h-20 inset-0 border-b border-textGray'>
             <div className='container h-20 flex items-center justify-between'>
-                <Logo />
+                <Link to='/'>
+                    <Logo />
+                </Link>
                 <ul className='flex space-x-4 font-semibold'>
                     <NavLink className='hover:text-primary' to='/explore'>
                         Explore
                     </NavLink>
-                    <NavLink className='hover:text-primary' to='/explore'>
+                    <NavLink className='hover:text-primary' to='/listings'>
                         Listings
                     </NavLink>
                     <NavLink className='hover:text-primary' to='/explore'>

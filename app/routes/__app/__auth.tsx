@@ -17,7 +17,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 const AuthLayout = () => {
     return (
         <main className='min-h-screen pt-20 flex'>
-            <div className='w-1/2 bg-[url(/images/auth.jpg)] bg-cover'></div>
+            <article className='w-1/2 bg-[url(/images/auth.jpg)] bg-cover'></article>
             <div className='w-1/2 flex items-center justify-center px-20'>
                 <Outlet />
             </div>
