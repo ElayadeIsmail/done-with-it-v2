@@ -9,7 +9,7 @@ const Header = () => {
         'id' | 'firstName' | 'lastName' | 'avatar'
     > | null>();
 
-    const renderActionsBtns = () => {
+    const renderAuthActions = () => {
         if (currentUser) {
             return (
                 <form action='/logout' method='post'>
@@ -51,7 +51,7 @@ const Header = () => {
                         Contact
                     </NavLink>
                 </ul>
-                {renderActionsBtns()}
+                {renderAuthActions()}
             </div>
         </header>
     );

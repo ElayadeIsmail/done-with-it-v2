@@ -25,6 +25,7 @@
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.40.0",
         "react-phone-input-2": "^2.15.1",
+        "react-range": "^1.8.14",
         "tailwind-merge": "^1.8.0",
         "validator": "^13.7.0",
         "zod": "^3.20.2"
