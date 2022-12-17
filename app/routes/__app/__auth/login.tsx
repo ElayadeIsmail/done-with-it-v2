@@ -24,6 +24,9 @@ export const action = async ({ request }: ActionArgs) => {
     if (!user) return badRequest({ message: 'Invalid Credentials' });
     return createUserSession(user.id, '/');
 };
+export const loader = () => {
+    return 'hello ';
+};
 
 const Login = () => {
     const submit = useSubmit();

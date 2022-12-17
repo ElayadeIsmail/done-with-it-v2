@@ -1,8 +1,17 @@
+import type { LoaderArgs } from '@remix-run/node';
+import { redirect } from '@remix-run/node';
 import { Outlet } from '@remix-run/react';
 import styles from 'react-phone-input-2/lib/style.css';
+import { getUserId } from '~/lib/session.server';
 
 export const links = () => {
     return [{ rel: 'stylesheet', href: styles }];
+};
+
+export const loader = async ({ request }: LoaderArgs) => {
+    const userId = await getUserId(request);
+    if (userId) return redirect('/');
+    return null;
 };
 
 const AuthLayout = () => {
