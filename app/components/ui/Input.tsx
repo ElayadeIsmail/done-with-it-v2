@@ -35,6 +35,7 @@ const Input: FC<InputProps> = ({
                 )}
                 id={name}
                 type={type}
+                autoComplete='off'
                 {...rest}
                 {...registerOptions}
             />

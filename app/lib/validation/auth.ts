@@ -31,13 +31,15 @@ export const registerSchema = zod
         password: zod
             .string({ required_error: 'Password is required' })
             .min(1, 'Password is required'),
-        confirmPassword: zod.string({
-            required_error: 'Confirm Password is required',
-        }),
+        confirmPassword: zod
+            .string({
+                required_error: 'Confirm Password is required',
+            })
+            .min(1, 'Confirm Password is required'),
     })
     .refine((data) => data.password === data.confirmPassword, {
         message: "Passwords don't match",
-        path: ['confirm'], // path of error
+        path: ['confirmPassword'], // path of error
     });
 
 export type RegisterSchema = zod.infer<typeof registerSchema>;
